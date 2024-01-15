@@ -410,6 +410,14 @@ func (m Model) Value() string {
 	return strings.TrimSuffix(v.String(), "\n")
 }
 
+// CurrentLine returns the value of the active column
+func (m Model) CurrentLine() string {
+	if m.value == nil {
+		return ""
+	}
+	return strings.TrimSuffix(string(m.value[m.col]), "\n")
+}
+
 // Length returns the number of characters currently in the text input.
 func (m *Model) Length() int {
 	var l int
